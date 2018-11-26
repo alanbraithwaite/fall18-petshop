@@ -8,7 +8,9 @@ let schema = new Schema({
   breed: { type: String, default: 'Mixed' },
   age: { type: Number },
   color: [{ type: String }],
-  gender: { type: String, required: true }
+  gender: { type: String, required: true },
+  _id: { type: String },
+  __v: { type: Number },
 })
 
 

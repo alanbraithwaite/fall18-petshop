@@ -9,6 +9,7 @@ router.get('/', (req, res, next) => {
   next()
 })
 
+
 //GET ALL CATS
 router.get('/', (req, res, next) => {
   //Returns all cats from the database
@@ -21,6 +22,7 @@ router.get('/', (req, res, next) => {
     })
 })
 
+
 //GET CAT BY ID
 router.get('/:id', (req, res, next) => {
   Cat.findById(req.params.id)
@@ -31,6 +33,7 @@ router.get('/:id', (req, res, next) => {
       res.status(400).send(err)
     })
 })
+
 
 //CREATE/POST CAT
 router.post('/', (req, res, next) => {
@@ -56,7 +59,6 @@ router.put('/:catId', (req, res, next) => {
 })
 
 
-
 //DELETE CAT
 router.delete('/:id', (req, res, next) => {
   Cat.findByIdAndDelete(req.params.id)
@@ -67,6 +69,7 @@ router.delete('/:id', (req, res, next) => {
       res.status(400).send(err)
     })
 })
+
 
 //same as export default
 module.exports = router

@@ -3,12 +3,14 @@ let Dog = require('../models/Dog')
 
 // let dogs = [{ name: "Clifford", age: 45 }]
 
-
+// Logger
 router.get('/', (req, res, next) => {
   console.log('Woof')
   //allows knight/request to continue
   next()
 })
+
+
 // GET ALL DOGS
 router.get('/', (req, res, next) => {
   // Returns all dogs from the database
@@ -33,13 +35,16 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
+
 // CREAT/POST DOG
 router.post('/', (req, res, next) => {
   Dog.create(req.body)
     .then(dog => {
+      console.log(dog)
       res.send(dog)
     })
     .catch(err => {
+      console.log(err)
       res.status(400).send(err)
     })
 })
@@ -56,16 +61,18 @@ router.put('/:dogId', (req, res, next) => {
     })
 })
 
+
 // DELETE DOG
 router.delete('/:id', (req, res, next) => {
   Dog.findByIdAndDelete(req.params.id)
     .then(deleteDog => {
-      res.send.('Delorted')
+      res.send()
     })
     .catch(err => {
       res.status(400).send(err)
     })
 })
+
 
 //same as export default
 module.exports = router

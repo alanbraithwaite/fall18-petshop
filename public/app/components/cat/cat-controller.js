@@ -7,7 +7,7 @@ function draw() {
   _cService.cats.forEach(cat => {
     template += `<div onclick="app.controllers.catController.delete('${cat._id}')">${cat.name} ${cat.age}</div>`
   })
-  document.getElementById('app').innerHTML = template
+  document.getElementById('cat').innerHTML = template
 }
 
 export default class CatController {
